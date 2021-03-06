@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "dracula-theme.theme-dracula",
+        "naumovs.color-highlight",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "spywhere.guides",
+        "ritwickdey.liveserver",
+        "ms-vsliveshare.vsliveshare"
+    ]
+}
