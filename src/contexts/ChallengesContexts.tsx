@@ -29,8 +29,8 @@ export const ChallengesContext = createContext({} as ChallengesContextData);
 export function ChallengesProvider({ children }: ChallengesProviderProps) {
 
     const [level, setLevel] = useState(1);
-    const [currentExperience, setCurrentExperience] = useState(30);
-    const [challengesCompleted, setChallengesCompleted] = useState(0);
+    const [currentExperience, setCurrentExperience] = useState(30); //experiencia do usuario
+    const [challengesCompleted, setChallengesCompleted] = useState(0); //numero de challenge (desafio) o usuario ja completou
 
     const [activeChallenge, setActiveChallenge] = useState(null);
 
@@ -49,6 +49,14 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
         const challenge = challenges[randomChallengeIndex];
 
         setActiveChallenge(challenge);
+
+        new Audio('/notification.mp3').play();
+
+        if (Notification.permission == 'granted') {
+            new Notification('Novo desafio 🎉 ', {
+                body: `Valendo ${challenge.amount} xp!`
+            })
+        }
     }
 
     function resetChallenge() {
